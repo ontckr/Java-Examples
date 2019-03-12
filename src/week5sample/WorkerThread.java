@@ -1,4 +1,5 @@
 package week5sample;
+
 public class WorkerThread implements Runnable {
 
 	private String command;
