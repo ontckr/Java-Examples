@@ -10,40 +10,37 @@ import java.util.Scanner;
 
 public class Reader extends Thread {
 
-  private String fileName;
-  private Map<String, ArrayList<String>> words;
+    private String fileName;
+    private Map<String, ArrayList<String>> words;
 
 
-  public Reader(String fileName, Map<String, ArrayList<String>> words){
-    this.fileName = fileName;
-    this.words = words;
-  }
-
-  @Override
-  public void run() {
-
-    System.out.println("Thread parsing " + fileName + "...");
-
-    synchronized (words){
-      words.put(fileName, new ArrayList<String>());
+    public Reader(String fileName, Map<String, ArrayList<String>> words) {
+        this.fileName = fileName;
+        this.words = words;
     }
 
-    File file = new File("C:\\Users\\C505\\IdeaProjects\\untitled\\src\\com\\company\\" + fileName +".txt");
-    try(Scanner sc = new Scanner(new FileInputStream(file))){
-      while(sc.hasNext()){
-        String word = sc.next();
+    @Override
+    public void run() {
 
-        synchronized (words){
-          if(!words.get(fileName).contains(word)){
-            words.get(fileName).add(word);
-          }
+        System.out.println("Thread parsing " + fileName + "...");
+
+        synchronized (words) {
+            words.put(fileName, new ArrayList<String>());
         }
 
+        File file = new File("/Users/onatcakir/Documents/java-labs/src/week4");
+        try (Scanner sc = new Scanner(new FileInputStream(file))) {
+            while (sc.hasNext()) {
+                String word = sc.next();
+                synchronized (words) {
+                    if (!words.get(fileName).contains(word)) {
+                        words.get(fileName).add(word);
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
-      }
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
     }
-
-  }
 }

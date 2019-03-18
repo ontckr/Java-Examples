@@ -40,7 +40,7 @@ public class Main extends Thread {
 
             for (String i : words.keySet()) {
 
-                if(words.get(i).contains(seachkey)){
+                if (words.get(i).contains(seachkey)) {
                     System.out.println(seachkey + " found in " + i);
                 }
             }
