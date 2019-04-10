@@ -10,6 +10,7 @@ public class EchoUDPClient {
 		DatagramSocket socket;
 		DatagramPacket packet;
 		try {
+
 			address = InetAddress.getByName("localhost");
 			socket = new DatagramSocket();
 			String message1 = "Hjlkfdsgj lkfdjglkfkglfd jlkfdlk gjfdlk gjlkfd jglkfd jglkfd jglkfd jglkfdj lkgfdjlk gjfdlk gjlkfd jglkfd jglkfd";
@@ -21,8 +22,11 @@ public class EchoUDPClient {
 			String message2 = new String(packet.getData());
 			Date receiveTime = new Date(); // note the time of receiving the message
 			System.out.println((receiveTime.getTime() - sendTime.getTime()) + " milliseconds echo time for " + message2);
-		} catch (UnknownHostException e) {
+
+			} catch (UnknownHostException e) {
+
 		} catch (SocketException e) {
-	    } catch (IOException e) {}
+
+		} catch (IOException e) {}
 	}
 }
