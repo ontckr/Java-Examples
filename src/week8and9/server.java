@@ -16,7 +16,7 @@ public class server {
     private static ArrayList<String> urls = new ArrayList<>();
 
     private static boolean isSent = false;
-
+    /*
     public static void main(String[] args) throws Exception {
 
         urls.add("https://www.cs.umb.edu/~smimarog/textmining/datasets/r8-train-all-terms.txt");
@@ -24,7 +24,7 @@ public class server {
         urls.add("https://www.cs.umb.edu/~smimarog/textmining/datasets/r52-train-all-terms.txt");
         urls.add("https://www.cs.umb.edu/~smimarog/textmining/datasets/r52-test-all-terms.txt");
 
-        try (ServerSocket listener = new ServerSocket(59898)) {
+        try (ServerSocket listener = new ServerSocket(53000) {
             System.out.println("The URL server is running...");
             ExecutorService pool = Executors.newFixedThreadPool(4);
             while (true) {
@@ -32,7 +32,7 @@ public class server {
             }
         }
     }
-
+*/
     public static void sendURL() {
         for (int i = 0; i < 4; i++) {
 

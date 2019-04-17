@@ -14,7 +14,7 @@ public class client {
 
     public static void main(String[] args) throws Exception {
 
-        try (Socket socket = new Socket("127.0.0.1", 59898)) {
+        try (Socket socket = new Socket("127.0.0.1", 53000)) {
             System.out.println("Enter lines of text then Ctrl+D or Ctrl+C to quit");
             //Scanner scanner = new Scanner(System.in);
             Scanner in = new Scanner(socket.getInputStream());
@@ -55,8 +55,6 @@ public class client {
                 String[] words = content.toString().split("\\s+");
                 System.out.println("Word Count: " + words.length);
                 out.println(words.length);
-
-
 
 
             }
